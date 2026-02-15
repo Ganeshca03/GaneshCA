@@ -138,20 +138,45 @@ function createRow() {
   const row = document.createElement("div")
   row.className = "glass rounded-xl p-4 grid grid-cols-1 md:grid-cols-12 gap-3 items-center"
 
-  row.innerHTML = `
-    <input class="md:col-span-6 bg-black/40 px-4 py-2 rounded text-red-200"
+ row.innerHTML = `
+  <!-- SUBJECT -->
+  <div class="md:col-span-6">
+    <label class="block text-xs text-red-300 md:hidden mb-1">SUBJECT</label>
+    <input
+      class="w-full bg-black/40 px-4 py-2 rounded text-red-200"
       placeholder="Subject name">
+  </div>
 
-    <select class="md:col-span-3 bg-black/40 px-4 py-2 rounded grade">
-      <option>O</option><option>A+</option><option>A</option>
-      <option>B+</option><option>B</option><option>C</option><option>U</option>
+  <!-- GRADE -->
+  <div class="md:col-span-3">
+    <label class="block text-xs text-red-300 md:hidden mb-1">GRADE</label>
+    <select class="w-full bg-black/40 px-4 py-2 rounded grade">
+      <option>O</option>
+      <option>A+</option>
+      <option>A</option>
+      <option>B+</option>
+      <option>B</option>
+      <option>C</option>
+      <option>U</option>
     </select>
+  </div>
 
-    <input type="number" value="3"
-      class="md:col-span-2 bg-black/40 px-4 py-2 rounded credits">
+  <!-- CREDITS -->
+  <div class="md:col-span-2">
+    <label class="block text-xs text-red-300 md:hidden mb-1">CREDITS</label>
+    <input
+      type="number"
+      value="3"
+      class="w-full bg-black/40 px-4 py-2 rounded credits">
+  </div>
 
-    <button class="md:col-span-1 text-red-500 text-xl px-2 py-1">✖</button>
-  `
+  <!-- REMOVE -->
+  <div class="md:col-span-1 flex items-end justify-center">
+    <button class="text-red-500 text-xl px-2 py-1">✖</button>
+  </div>
+`
+
+
 
   row.querySelector("button").onclick = () => row.remove()
   subjects.appendChild(row)
